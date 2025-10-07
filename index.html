@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Disfruta de la experiencia única de nuestros dos locales turísticos: El Titanic y El Club Blanco, en el corazón de la naturaleza.">
+    <title>El Titanic y El Club Blanco</title>
+    <!-- Enlace para importar Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== VARIABLES DE COLOR - PARTE SUPERIOR (HEADER/HERO) ===== */
+        :root {
+            /* Colores para header y hero (se mantienen como antes) */
+            --primary-bg: #A7D8F2; /* Azul claro suave */
+            --header-nav: #2A4D6B; /* Azul medianoche */
+            
+            /* Colores para secciones inferiores (crema) */
+            --cream-bg: #FFF8E1; /* Crema claro suave */
+            --cream-header: #8B7355; /* Café elegante */
+            
+            /* Botones y llamadas a la acción */
+            --btn-primary: #28A745; /* Verde esmeralda */
+            --btn-action: #FF7F50; /* Naranja vibrante */
+            --btn-register: #FF5C57; /* Rojo coral suave */
+            
+            /* Colores de texto */
+            --text-primary: #333333; /* Gris oscuro */
+            --text-secondary: #6C757D; /* Gris medio */
+            --text-light: #FFFFFF; /* Blanco */
+            
+            /* Iconos y detalles */
+            --accent-gold: #FFB703; /* Dorado suave */
+            
+            /* Fondos de secciones */
+            --section-bg: #FFF8E1; /* Crema para secciones inferiores */
+            --white: #FFFFFF;
+            
+            /* Gradientes */
+            --gradient-header: linear-gradient(135deg, #2A4D6B, #1E3A52);
+            --gradient-cream-header: linear-gradient(135deg, #8B7355, #6B5D54);
+            --gradient-btn: linear-gradient(135deg, #28A745, #20c057);
+            --gradient-action: linear-gradient(135deg, #FF7F50, #FF9A76);
+            --gradient-hero: linear-gradient(rgba(42, 77, 107, 0.4), rgba(42, 77, 107, 0.2));
+            
+            /* Transiciones */
+            --transition: all 0.3s ease;
+            --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition-smooth: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* ===== RESET Y ESTILOS BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background-color: var(--primary-bg);
+            font-size: 18px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== TIPOGRAFÍA LEGIBLE Y ELEGANTE ===== */
+        h1, h2, h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            color: var(--text-light);
+            letter-spacing: 0.5px;
+        }
+
+        h2 {
+            font-size: 3rem;
+            color: var(--header-nav);
+            position: relative;
+            padding-bottom: 25px;
+            margin-bottom: 50px;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 4px;
+            background: var(--gradient-btn);
+            border-radius: 10px;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: var(--header-nav);
+            margin-bottom: 20px;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            font-weight: 400;
+            font-family: 'Open Sans', sans-serif;
+            letter-spacing: 0.2px;
+        }
+
+        /* ===== HEADER MANTENIDO COMO ANTES ===== */
+        header {
+            background: var(--gradient-header);
+            box-shadow: 0 4px 20px rgba(42, 77, 107, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 4px solid var(--text-light);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .auth-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .auth-buttons button {
+            padding: 12px 25px;
+            border: 2px solid var(--text-light);
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition-bounce);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            background: transparent;
+            color: var(--text-light);
+        }
+
+        .login-btn {
+            background-color: var(--btn-action) !important;
+            border-color: var(--btn-action) !important;
+        }
+
+        .login-btn:hover {
+            background-color: var(--text-light) !important;
+            color: var(--btn-action) !important;
+            transform: translateY(-3px);
+        }
+
+        .register-btn {
+            background-color: var(--btn-register) !important;
+            border-color: var(--btn-register) !important;
+        }
+
+        .register-btn:hover {
+            background-color: var(--text-light) !important;
+            color: var(--btn-register) !important;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 92, 87, 0.4);
+        }
+
+        /* ===== NAVEGACIÓN MANTENIDA ===== */
+        nav {
+            background-color: var(--header-nav);
+            padding: 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            color: var(--text-light);
+            text-decoration: none;
+            padding: 18px 25px;
+            transition: var(--transition);
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            background-color: var(--btn-primary);
+            color: var(--text-light);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 4px;
+            background-color: var(--accent-gold);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 80%;
+        }
+
+        /* ===== HERO SECTION MEJORADA ===== */
+        .hero {
+            background: var(--gradient-hero), 
+                        url('imagenes/VISTAS.jpg') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            margin-top: 140px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(167, 216, 242, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(167, 216, 242, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="150" cy="150" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="100" cy="100" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: 200px 200px;
+            opacity: 0.5;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-200px, -200px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            padding: 0 20px;
+        }
+
+        .hero-text {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 60px 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-text h2 {
+            font-size: 4rem;
+            margin-bottom: 30px;
+            color: var(--text-light);
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            animation: slideInLeft 1s ease 0.2s both;
+            position: relative;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .hero-text h2::before {
+            content: '✨';
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: sparkle 2s infinite;
+        }
+
+        .hero-text h2::after {
+            content: '✨';
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: sparkle 2s infinite 0.5s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.2); }
+        }
+
+        .hero-text p {
+            font-size: 1.4rem;
+            margin-bottom: 40px;
+            color: var(--text-light);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            animation: slideInRight 1s ease 0.4s both;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--gradient-btn);
+            color: var(--text-light);
+            padding: 18px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition-bounce);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            border: 2px solid var(--text-light);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: var(--transition-smooth);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(40, 167, 69, 0.4);
+            background: var(--text-light);
+            color: var(--btn-primary);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-action);
+            color: var(--text-light);
+            border-color: var(--text-light);
+            box-shadow: 0 10px 30px rgba(255, 127, 80, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: var(--text-light);
+            color: var(--btn-action);
+            box-shadow: 0 15px 40px rgba(255, 127, 80, 0.4);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--text-light);
+            animation: bounce 2s infinite;
+            z-index: 3;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* ===== SECCIONES INFERIORES CON FONDO CREMA ===== */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        /* Cambiar solo las secciones desde "Sobre nosotros" hacia abajo */
+        section:not(.hero) {
+            background-color: var(--cream-bg);
+        }
+
+        section:not(.hero)::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 248, 225, 0.3), rgba(255, 248, 225, 0.1));
+            z-index: -1;
+        }
+
+        section:not(.hero):nth-child(even)::before {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.2));
+        }
+
+        /* Cambiar colores de texto para secciones inferiores */
+        section:not(.hero) h2 {
+            color: var(--cream-header);
+        }
+
+        section:not(.hero) h3 {
+            color: var(--cream-header);
+        }
+
+        section:not(.hero) p {
+            color: var(--cream-header);
+        }
+
+        /* ===== ABOUT SECTION MEJORADA ===== */
+        .about-intro {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .about-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(139, 115, 85, 0.15);
+            transition: var(--transition-bounce);
+            border-top: 5px solid var(--btn-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(40, 167, 69, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: var(--transition-smooth);
+        }
+
+        .feature:hover::before {
+            transform: scale(1);
+        }
+
+        .feature:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(40, 167, 69, 0.25);
+        }
+
+        .feature i {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            transition: var(--transition);
+        }
+
+        .feature:hover i {
+            transform: scale(1.1);
+        }
+
+        .feature h3 {
+            color: var(--cream-header);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            font-size: 1.6rem;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: var(--cream-header);
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        /* ===== LOCATION SECTIONS MEJORADAS ===== */
+        .location-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .location-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .location-description {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .location-description::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--gradient-btn);
+            border-radius: 3px;
+        }
+
+        .highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .highlights span {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            background: var(--gradient-btn);
+            color: var(--text-light);
+            border-radius: 30px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            box-shadow: 0 8px 20px rgba(40, 167, 69, 0.3);
+            transition: var(--transition);
+        }
+
+        .highlights span:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(40, 167, 69, 0.4);
+        }
+
+        .image-container {
+            flex: 1;
+            min-width: 300px;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 45px rgba(139, 115, 85, 0.25);
+            border: 5px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+        }
+
+        .image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 50%, rgba(40, 167, 69, 0.1));
+            pointer-events: none;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* ===== SERVICES SECTION MEJORADA ===== */
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .service {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 50px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: var(--transition-bounce);
+            box-shadow: 0 15px 40px rgba(139, 115, 85, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradient-btn);
+        }
+
+        .service:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(40, 167, 69, 0.25);
+        }
+
+        .service i {
+            font-size: 4rem;
+            color: var(--accent-gold);
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .service:hover i {
+            transform: scale(1.1);
+        }
+
+        .service h3 {
+            color: var(--cream-header);
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+        }
+
+        .service p {
+            font-size: 1rem;
+            color: var(--cream-header);
+            line-height: 1.6;
+        }
+
+        /* ===== GALLERY SECTION MEJORADA ===== */
+        .images {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .images figure {
+            margin: 0;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(139, 115, 85, 0.2);
+            transition: var(--transition-bounce);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .images figure:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(40, 167, 69, 0.3);
+        }
+
+        .images img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .images figure:hover img {
+            transform: scale(1.08);
+        }
+
+        .images figcaption {
+            background: var(--gradient-btn);
+            color: var(--text-light);
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+        }
+
+        /* ===== CONTACT SECTION MEJORADA ===== */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        .contact-info, .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(139, 115, 85, 0.15);
+        }
+
+        .contact-info h3 {
+            color: var(--cream-header);
+            margin-bottom: 30px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .contact-info p {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: var(--cream-header);
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .contact-info i {
+            color: var(--btn-primary);
+            font-size: 1.5rem;
+            width: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        input, textarea {
+            padding: 18px;
+            border: 2px solid rgba(139, 115, 85, 0.3);
+            border-radius: 15px;
+            font-family: 'Open Sans', sans-serif;
+            transition: var(--transition);
+            background: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+        }
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: var(--btn-primary);
+            box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        button[type="submit"] {
+            background: var(--gradient-btn);
+            color: var(--text-light);
+            border: none;
+            padding: 18px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition-bounce);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        }
+
+        button[type="submit"]:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(40, 167, 69, 0.4);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--cream-header);
+            color: var(--text-light);
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        footer p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .social-links a {
+            color: var(--text-light);
+            font-size: 1.8rem;
+            transition: var(--transition-bounce);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-links a:hover {
+            color: var(--text-light);
+            transform: translateY(-5px);
+            background-color: var(--btn-primary);
+        }
+
+        /* ===== MODALES ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(42, 77, 107, 0.8);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            margin: 10% auto;
+            padding: 50px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 500px;
+            position: relative;
+            animation: slideIn 0.3s;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .close {
+            position: absolute;
+            right: 25px;
+            top: 20px;
+            font-size: 30px;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+
+        .close:hover {
+            color: var(--header-nav);
+        }
+
+        .modal h2 {
+            color: var(--header-nav);
+            margin-bottom: 30px;
+        }
+
+        .modal form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .modal input {
+            padding: 18px;
+            border: 2px solid rgba(139, 115, 85, 0.2);
+            border-radius: 15px;
+            background-color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        .modal button {
+            background: var(--gradient-btn);
+            color: var(--text-light);
+            border: none;
+            padding: 18px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: var(--transition-bounce);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .modal button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(40, 167, 69, 0.3);
+        }
+
+        .modal p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .modal a {
+            color: var(--btn-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .modal a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== ANIMACIONES ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+            }
+
+            .hero-text h2 {
+                font-size: 3rem;
+            }
+
+            .hero-text h2::before,
+            .hero-text h2::after {
+                display: none;
+            }
+
+            .hero-text {
+                padding: 40px 20px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .location-content {
+                flex-direction: column;
+            }
+
+            .contact-container {
+                flex-direction: column;
+            }
+
+            h2 {
+                font-size: 2.5rem;
+            }
+
+            .highlights {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h2 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                font-size: 1.3rem;
+            }
+
+            .auth-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 15px;
+            }
+
+            .auth-buttons button {
+                width: 100%;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con logo y botones de autenticación -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="imagenes/LOGO.jpg" alt="Logo El Titanic y El Club Blanco">
+                    <h1>El Titanic y El Club privado Blanco</h1>
+                </div>
+                <div class="auth-buttons">
+                    <button class="login-btn" onclick="showLoginModal()">Iniciar Sesión</button>
+                    <button class="register-btn" onclick="showRegisterModal()">Registrarse</button>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#about">Sobre nosotros</a></li>
+                <li><a href="#titanic">El Titanic</a></li>
+                <li><a href="#clubblanco">El Club Blanco</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Sección Principal -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h2>¡Bienvenidos a nuestros dos exclusivos destinos turísticos!</h2>
+                <p>Disfruta de la belleza de la naturaleza y la comodidad de nuestros alojamientos de lujo.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Reserva ahora</a>
+                    <a href="#gallery" class="btn btn-secondary">Ver galería</a>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- Sección sobre nosotros -->
+    <section id="about">
+        <div class="container">
+            <h2>Sobre nosotros</h2>
+            <div class="about-intro">
+                <p>En "El Titanic" y "El Club Blanco", ofrecemos una experiencia única en dos maravillosos y acogedores lugares. Nuestro compromiso es brindarte un escape perfecto de la rutina, rodeado de naturaleza impresionante y comodidades de primera clase. Cada uno de nuestros destinos ha sido cuidadosamente diseñado para satisfacer las necesidades de los viajeros más exigentes, ya sea que busques aventura, relajación o simplemente un lugar para desconectar.</p>
+            </div>
+            
+            <div class="about-features">
+                <div class="feature">
+                    <i class="fas fa-star"></i>
+                    <h3>Exclusividad</h3>
+                    <p>Destinos únicos diseñados para experiencias inolvidables</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Naturaleza</h3>
+                    <p>Rodeados de paisajes impresionantes y aire puro</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h3>Servicio Premium</h3>
+                    <p>Atención personalizada y detalles que marcan la diferencia</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Titanic -->
+    <section id="titanic">
+        <div class="container">
+            <h2>El Titanic</h2>
+            <div class="location-content">
+                <div class="location-text">
+                    <div class="location-description">
+                        <p>Ubicado en el corazón de la naturaleza, El Titanic te ofrece una experiencia inolvidable con vistas panorámicas que te dejarán sin aliento. Nuestro diseño inspirado en el lujo clásico combina con comodidades modernas para crear un ambiente único.</p>
+                    </div>
+                    <div class="location-description">
+                        <p>Disfruta de nuestras amplias cabañas, cada una con su propio encanto y todas las comodidades que necesitas para una estancia perfecta. Además, ofrecemos una amplia gama de actividades al aire libre para todos los gustos y edades.</p>
+                    </div>
+                    
+                    <div class="highlights">
+                        <span><i class="fas fa-check"></i> Vistas panorámicas</span>
+                        <span><i class="fas fa-check"></i> Cabañas de lujo</span>
+                        <span><i class="fas fa-check"></i> Actividades al aire libre</span>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="imagenes/TITANIC.jpg" alt="El Titanic">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- El Club Blanco -->
+    <section id="clubblanco">
+        <div class="container">
+            <h2>El Club Blanco</h2>
+            <div class="location-content">
+                <div class="location-text">
+                    <div class="location-description">
+                        <p>El Club Blanco ofrece una experiencia más íntima y exclusiva para aquellos que buscan privacidad y lujo. Con un diseño minimalista y elegante, nuestro club es el lugar perfecto para relajarse y recargar energías.</p>
+                    </div>
+                    <div class="location-description">
+                        <p>Nuestras instalaciones incluyen piscinas de diseño, spa de clase mundial y restaurantes gourmet donde podrás disfrutar de la mejor gastronomía local e internacional. Todo esto en un entorno de belleza natural incomparable.</p>
+                    </div>
+                    
+                    <div class="highlights">
+                        <span><i class="fas fa-check"></i> Piscinas de diseño</span>
+                        <span><i class="fas fa-check"></i> Spa de clase mundial</span>
+                        <span><i class="fas fa-check"></i> Restaurantes gourmet</span>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <img src="imagenes/CLUB_PRIVADO.jpg" alt="El Club Blanco">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section id="services">
+        <div class="container">
+            <h2>Servicios</h2>
+            <div class="services-container">
+                <div class="service">
+                    <i class="fas fa-hiking"></i>
+                    <h3>Aventura al aire libre</h3>
+                    <p>Realiza actividades como senderismo, escalada y exploración de la naturaleza con guías expertos.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-spa"></i>
+                    <h3>Spa y bienestar</h3>
+                    <p>Relájate en nuestro spa con tratamientos de lujo diseñados para revitalizar cuerpo y mente.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Gastronomía exclusiva</h3>
+                    <p>Disfruta de platos gourmet preparados con ingredientes locales frescos en nuestros restaurantes.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-swimming-pool"></i>
+                    <h3>Piscinas y relax</h3>
+                    <p>Disfruta de nuestras piscinas de diseño con vistas impresionantes y servicios de bar.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-bicycle"></i>
+                    <h3>Deportes y actividades</h3>
+                    <p>Practica deportes como ciclismo, kayak o equitación en nuestros alrededores naturales.</p>
+                </div>
+                <div class="service">
+                    <i class="fas fa-concierge-bell"></i>
+                    <h3>Servicio personalizado</h3>
+                    <p>Nuestro personal está disponible 24/7 para atender todas tus necesidades durante tu estancia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería -->
+    <section id="gallery">
+        <div class="container">
+            <h2>Galería</h2>
+            <div class="images">
+                <figure>
+                    <img src="imagenes/CABAÑAS.jpg" alt="Cabañas">
+                    <figcaption>Cabañas de Descanso</figcaption>
+                </figure>
+                <figure>
+                    <img src="imagenes/CABAÑAS1.jpg" alt="Interior Cabañas">
+                    <figcaption>Interior Cabañas</figcaption>
+                </figure>
+                <figure>
+                    <img src="imagenes/CAMPO_DEPORTIVO.jpg" alt="Campo Deportivo">
+                    <figcaption>Campo Deportivo</figcaption>
+                </figure>
+                <figure>
+                    <img src="imagenes/VISTAS.jpg" alt="Vistas Panorámicas">
+                    <figcaption>Vistas Panorámicas</figcaption>
+                </figure>
+                <figure>
+                    <img src="imagenes/VISATS.jpg" alt="Vistas Generales">
+                    <figcaption>Vistas Generales</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Dirección: Carretera a la Naturaleza Km 12, Valle Escondido</p>
+                    <p><i class="fas fa-phone"></i> Teléfono: +123 456 7890</p>
+                    <p><i class="fas fa-envelope"></i> Correo: info@eltitanicclubblanco.com</p>
+                    <p><i class="fas fa-clock"></i> Horario: 24/7 para nuestros huéspedes</p>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Tu nombre" required>
+                        <input type="email" placeholder="Tu correo electrónico" required>
+                        <input type="tel" placeholder="Tu teléfono">
+                        <textarea placeholder="Mensaje" rows="5" required></textarea>
+                        <button type="submit">Enviar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 El Titanic y El Club Blanco | Todos los derechos reservados.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modales para inicio de sesión y registro -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Iniciar Sesión</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <button type="submit">Iniciar Sesión</button>
+                <p>¿Olvidaste tu contraseña? <a href="#">Recuperar</a></p>
+            </form>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>Registrarse</h2>
+            <form id="registerForm">
+                <input type="text" placeholder="Nombre completo" required>
+                <input type="email" placeholder="Correo electrónico" required>
+                <input type="password" placeholder="Contraseña" required>
+                <input type="password" placeholder="Confirmar contraseña" required>
+                <button type="submit">Registrarse</button>
+                <p>Al registrarte, aceptas nuestros <a href="#">términos y condiciones</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Funciones para los modales
+        function showLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+
+        function showRegisterModal() {
+            document.getElementById('registerModal').style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        // Cerrar modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+            }
+        }
+
+        // Efecto de scroll en el header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+
+        // Manejo del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para enviar el formulario
+            alert('Gracias por contactarnos. Te responderemos a la brevedad.');
+            this.reset();
+        });
+
+        // Manejo del formulario de inicio de sesión
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para iniciar sesión
+            alert('Has iniciado sesión correctamente.');
+            closeModal('loginModal');
+            this.reset();
+        });
+
+        // Manejo del formulario de registro
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Aquí iría la lógica para registrarse
+            alert('Te has registrado correctamente. Ahora puedes iniciar sesión.');
+            closeModal('registerModal');
+            this.reset();
+        });
+
+        // Smooth scrolling para los enlaces de navegación
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
